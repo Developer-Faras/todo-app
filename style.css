@@ -79,7 +79,19 @@
     padding: 0.4rem;
     background: #ffffff52;
     border-radius: 0 0 4px 4px;
+    overflow-y: scroll;
 }
+
+/* Display Scrollbar Design */
+.app-container .display::-webkit-scrollbar{
+    width: 10px;
+    background: rgba(255, 255, 255, 0.4);
+}
+.app-container .display::-webkit-scrollbar-thumb{
+    width: 10px;
+    background: rgba(8, 93, 165, 0.522);
+}
+
 .app-container .display .todo-list{
     list-style: none;
     font-family: var(--font-kdam);
