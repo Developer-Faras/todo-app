@@ -3,26 +3,27 @@ const todoForm = document.querySelector('#todo-form');
 const todoInput = todoForm.querySelector('#todo-input');
 const todoList = document.querySelector('#todo-list');
 
-// All Function
+
 // Display Todo Function
 const displayTodo = () => {
     todoList.innerHTML = '';
 
-    for (let i = 1; i <= localStorage.length; i++) {
+    for (let i = 0; i < localStorage.length; i++) {
         
         let li = document.createElement('li');
             li.classList.add('todo');
-            li.setAttribute('todoId', i.toString())
-            li.innerHTML = `<span class="todo-massage">${localStorage.getItem(i)}</span>
-                           <span class="delete-todo-btn" onclick = "deleteTodo(${i});">🗑</span>`;
+            li.setAttribute('todoId', i.toString());
+            li.innerHTML = `<span class="todo-massage">${localStorage.getItem(localStorage.key(i))}</span>
+                           <span class="delete-todo-btn" onclick = "deleteTodo(${localStorage.key(i)});">🗑</span>`;
 
         todoList.appendChild(li);
+
     }
-    
+
 }
 
 
-// Check If Todo Exist
+// Check If Todo Exist Function
 const checkTodo = (text) => {
     const todoArr = new Array();
 
@@ -57,7 +58,12 @@ const addTodo = (id, text) => {
 
 // Delete Todo Function
 const deleteTodo = (id) => {
-    console.log(id);
+    const todoId = id.toString();
+
+    localStorage.removeItem(todoId);
+
+    displayTodo();
+    displayMassage('success', 'Todo Deleted Successfully');
 }
 
 
@@ -70,6 +76,7 @@ const displayMassage = (type, message) => {
 
         if(type === 'success'){
             li.style.color = '#289314';
+            todoInput.value = '';
         }else if(type === 'error'){
             li.style.color = '#ed3838';
             todoInput.focus();
@@ -84,7 +91,7 @@ const displayMassage = (type, message) => {
 }
 
 
-// Add Todo Function
+// Form Submit Function
 const formSubmmit = (event) => {
     event.preventDefault();
     
@@ -98,7 +105,7 @@ const formSubmmit = (event) => {
 }
 
 
-// Form Submit Function
+// Form Submit
 todoForm.addEventListener('submit', formSubmmit);
 
 // Display Todo
