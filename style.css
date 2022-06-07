@@ -110,6 +110,7 @@
 }
 .app-container .display .todo-list .todo:hover{
     background: rgba(255, 255, 255, 0.8);
+    color: #111;
 }
 .app-container .display .todo-list .todo.massageLi {
     border-left: 4px solid;

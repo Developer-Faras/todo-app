@@ -108,7 +108,7 @@ const formSubmmit = (event) => {
 // Form Submit
 todoForm.addEventListener('submit', formSubmmit);
 
-// Display Todo
+// Display Todo Reset Fucntion
 displayTodo();
 
 

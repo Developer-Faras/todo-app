@@ -1,4 +1,4 @@
-![Screenshot](./img/ls.png)
+![Screenshot](./img/readme.png)
 
 <br />
 <h1 style="text-align:center; border: none;">Todo App</h1>
@@ -27,9 +27,4 @@
 <br />
 <a href="https://developer-faras.github.io/todo-app/" style="padding: 10px 20px; background: #fff; text-decoration: none; color: rgb(55, 99, 245);" >Visit Demo</a>
 
-
-
-
-
-<!-- asadasd -->
 
