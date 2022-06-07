@@ -1,4 +1,4 @@
-// Javascript Todo App
+// Get All Needed Element
 const todoForm = document.querySelector('#todo-form');
 const todoInput = todoForm.querySelector('#todo-input');
 const todoList = document.querySelector('#todo-list');
@@ -6,6 +6,7 @@ const todoList = document.querySelector('#todo-list');
 // All Function
 // Display Todo Function
 const displayTodo = () => {
+    todoList.innerHTML = '';
 
     for (let i = 1; i <= localStorage.length; i++) {
         
@@ -44,12 +45,12 @@ const addTodo = (id, text) => {
     const todoText = text.toString();
 
     if(!checkTodo(todoText)){
-        localStorage.setItem(todoId, todoText);
-        displayMassage('success', 'Todo Added Successfully');
-        displayTodo();
-    }else{
+        localStorage.setItem(todoId, todoText)
         
-        displayMassage('error', 'This Todo Are Allerady Seted');
+        displayTodo();
+        displayMassage('success', 'Todo Added Successfully');
+    }else{
+        displayMassage('error', 'This Todo Are Allready Seted');
     }
 }
 
@@ -71,6 +72,7 @@ const displayMassage = (type, message) => {
             li.style.color = '#289314';
         }else if(type === 'error'){
             li.style.color = '#ed3838';
+            todoInput.focus();
         }
 
         todoList.prepend(li);
